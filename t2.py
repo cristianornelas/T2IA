@@ -35,7 +35,11 @@ def get_app_coments(pagenum, appid):
     result = []
 
     for i in range(len(dates)):
-        result.append([dates[i].contents[0] , reviews[i].contents[2].encode("utf-8")])
+        try:
+            result.append([dates[i].contents[0] , reviews[i].contents[2].encode("utf-8")])
+        except:
+            continue
+
 
     print("Comentarios baixados.")
     return result
